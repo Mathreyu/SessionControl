@@ -1,10 +1,13 @@
 package com.example.ramon.sessioncontrol;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -27,5 +30,30 @@ public class main1 extends AppCompatActivity {
 
         user = (EditText)findViewById(R.id.nameKey);
         pass = (EditText)findViewById(R.id.passKey);
+
+        go = (Button)findViewById(R.id.login);
+        sharedPreferences = getSharedPreferences(MyPrefs, Context.MODE_PRIVATE);
+
+        go.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                String name = user.getText().toString();
+                String password = pass.getText().toString();
+
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                editor.putString(Name, name);
+                editor.putString(Pass, password);
+                editor.commit();
+
+                intent = new Intent(main1.this, main2.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
     }
 }
