@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import butterknife.BindView;
+
 /**
  * Created by Ramon on 8/9/2016.
  */
-public class main2 extends Activity{
-    Button logout = null;
-    Button close = null;
+public class MainLogged extends Activity{
+    @BindView(R.id.logout) Button logout;
+    @BindView(R.id.exit) Button close;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +26,9 @@ public class main2 extends Activity{
     }
 
     public void logout(View view){
-        SharedPreferences sharedPreferences = getSharedPreferences(main1.MyPrefs, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences(MainLogin.MyPreferences, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.clear();
+        editor.remove();
         editor.commit();
     }
 
