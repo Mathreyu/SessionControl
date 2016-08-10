@@ -54,10 +54,10 @@ public class MainLogin extends Activity {
 
                 UserLogEditor = UserLog.edit();
                 UserLogEditor.putString("UserInfo" , UserInfoGson);
-                UserLogEditor.commit();
+                UserLogEditor.apply();
 
                 Intent intent = new Intent(MainLogin.this, MainLogged.class);
-                intent.putExtra("ok", UserInfoGson);
+                intent.putExtra("UserInfo", UserInfoGson);
                 startActivity(intent);
             }
         });
