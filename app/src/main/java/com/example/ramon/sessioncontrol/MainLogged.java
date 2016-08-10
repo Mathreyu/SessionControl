@@ -26,10 +26,15 @@ public class MainLogged extends Activity{
     }
 
     public void logout(View view){
-        SharedPreferences sharedPreferences = getSharedPreferences(MainLogin.MyPreferences, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.remove();
-        editor.commit();
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String UserExtras =  extras.getString("basic_user", "");
+            SharedPreferences sharedPreferences = getSharedPreferences(MainLogin.MyPreferences, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.remove(UserExtras);
+            editor.commit();
+        }
+
     }
 
     public void close(View view){
