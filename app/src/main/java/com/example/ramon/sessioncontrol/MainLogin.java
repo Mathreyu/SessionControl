@@ -59,6 +59,7 @@ public class MainLogin extends Activity {
                 Intent intent = new Intent(MainLogin.this, MainLogged.class);
                 intent.putExtra("UserInfo", UserInfoGson);
                 startActivity(intent);
+                finish();
             }
         });
     }
