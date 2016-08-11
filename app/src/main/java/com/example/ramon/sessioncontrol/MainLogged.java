@@ -1,8 +1,7 @@
 package com.example.ramon.sessioncontrol;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.app.DialogFragment;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,17 +25,15 @@ public class MainLogged extends Activity{
     }
 
     public void logout(View view){
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            SharedPreferences sharedPreferences = getSharedPreferences(MainLogin.MyPreferences, Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.clear();
-            editor.apply();
-        }
-
+        confirmLogout();
     }
 
     public void close(View view){
         finish();
+    }
+
+    public void confirmLogout(){
+        DialogFragment newFragment = new LogoutDialog();
+        newFragment.show(getFragmentManager(), "logout");
     }
 }

@@ -26,23 +26,25 @@ public class SplashScreen extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
         MyPrefs = getSharedPreferences(MyPreferences, Context.MODE_PRIVATE);
+        final String userJson = MyPrefs.getString("UserInfo","");
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                checkLogin();
+                checkLogin(userJson);
             }
         }, 1500);
     }
 
-    public void checkLogin(){
-        if (MyPrefs.contains("UserInfo")) {
-            Intent intent = new Intent(SplashScreen.this, MainLogged.class);
-            startActivity(intent);
+    public void checkLogin(String userJson){
+        Intent intent;
+        if (!userJson.isEmpty()) {
+            intent = new Intent(SplashScreen.this, MainLogged.class);
         }
         else{
-            Intent intent = new Intent(SplashScreen.this, MainLogin.class);
-            startActivity(intent);
+            intent = new Intent(SplashScreen.this, MainLogin.class);
         }
+        startActivity(intent);
+        finish();
     }
 }
