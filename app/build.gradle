@@ -3,13 +3,13 @@ apply plugin: 'android-apt'
 apply plugin: 'realm-android'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 21
+    buildToolsVersion "22.0.1"
 
     defaultConfig {
         applicationId "com.example.ramon.sessioncontrol"
-        minSdkVersion 23
-        targetSdkVersion 23
+        minSdkVersion 15
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
     }
@@ -25,8 +25,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.2.1'
-    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:appcompat-v7:22.1.1'
     compile 'com.jakewharton:butterknife:8.2.1'
     compile 'com.google.code.gson:gson:2.2.4'
-    compile 'com.android.support:design:23.4.0'
 }
