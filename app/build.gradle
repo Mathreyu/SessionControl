@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
-apply plugin: 'realm-android'
 
 android {
     compileSdkVersion 21
@@ -8,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.ramon.sessioncontrol"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
@@ -28,4 +27,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.1.1'
     compile 'com.jakewharton:butterknife:8.2.1'
     compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.android.support:support-v4:21.0.3'
 }
