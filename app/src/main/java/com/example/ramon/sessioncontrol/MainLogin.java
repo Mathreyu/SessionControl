@@ -26,7 +26,6 @@ public class MainLogin extends Activity {
     SharedPreferences UserLog;
     SharedPreferences.Editor UserLogEditor;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +37,6 @@ public class MainLogin extends Activity {
     }
 
     private void init() {
-        initListeners();
-    }
-
-    private void initListeners() {
         go.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
